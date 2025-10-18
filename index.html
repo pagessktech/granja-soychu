@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granja Soychú - De nuestra granja a tu mesa</title>
+    <meta name="description" content="Productos frescos y elaborados de la mejor calidad en Muñiz. Pollos, medallones, fiambres y productos de almacén. Atención personalizada y la frescura que tu familia merece.">
+    <meta name="keywords" content="granja, pollería, productos frescos, Muñiz, San Miguel, Soychú, alimentos, almacén">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide-icons@0.378.0/dist/lucide.min.js"></script>
+
+
+    <style>
+        /* Paleta de colores basada en el local */
+        :root {
+            --primary-color: #F97316; /* Naranja Vibrante */
+            --background-color: #FAF8F1; /* Crema Claro / Blanco Cálido */
+            --secondary-color: #1F2937; /* Gris Oscuro / Carbón */
+            --accent-color: #FDBA74;   /* Naranja Claro para acentos */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: #333;
+        }
+
+        /* Clases de utilidad con los nuevos colores */
+        .bg-primary { background-color: var(--primary-color); }
+        .bg-background { background-color: var(--background-color); }
+        .bg-secondary { background-color: var(--secondary-color); }
+        .bg-accent { background-color: var(--accent-color); }
+        
+        .text-primary { color: var(--primary-color); }
+        .text-secondary { color: var(--secondary-color); }
+        .text-accent { color: var(--accent-color); }
+
+        .border-primary { border-color: var(--primary-color); }
+        .border-secondary { border-color: var(--secondary-color); }
+        .border-accent { border-color: var(--accent-color); }
+
+
+        /* Animation for sections appearing on scroll */
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Preloader styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--background-color);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            transition-delay: 0.2s; /* Short delay before fading out */
+        }
+
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loading-bar-container {
+            width: 250px;
+            height: 8px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .loading-bar {
+            width: 0%; /* Start at 0 */
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 4px;
+            animation: loading-progress 1.5s ease-out forwards;
+        }
+
+        @keyframes loading-progress {
+            from {
+                width: 0%;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Custom button styles for a premium feel */
+        .btn {
+            @apply px-8 py-3 rounded-lg font-semibold text-white shadow-lg transition-all duration-300 ease-in-out inline-flex items-center justify-center gap-2;
+        }
+        .btn-primary {
+            @apply bg-primary hover:brightness-110 transform hover:-translate-y-1;
+        }
+        .btn-secondary {
+            @apply bg-secondary hover:brightness-110 transform hover:-translate-y-1;
+        }
+        
+        /* Glassmorphism effect for the header */
+        .header-glass {
+             background: rgba(250, 248, 241, 0.8);
+             backdrop-filter: blur(10px);
+             -webkit-backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold text-primary mb-4">Granja Soychú</h2>
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5491166012667?text=Hola,%20quiero%20hacer%20un%20pedido%20en%20Granja%20Soychú" target="_blank" class="fixed bottom-6 right-6 z-40 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300" aria-label="Contactar por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+    </a>
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-primary">Granja Soychú</a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#nosotros" class="text-gray-700 hover:text-primary transition-colors duration-300">Nosotros</a>
+                <a href="#productos" class="text-gray-700 hover:text-primary transition-colors duration-300">Productos</a>
+                <a href="#opiniones" class="text-gray-700 hover:text-primary transition-colors duration-300">Opiniones</a>
+                <a href="#contacto" class="text-gray-700 hover:text-primary transition-colors duration-300">Contacto</a>
+                <a href="tel:01166012667" class="btn btn-secondary text-sm !px-5 !py-2.5">¡Llamar ahora! <i data-lucide="phone" class="w-4 h-4"></i></a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-background/95 backdrop-blur-sm">
+            <a href="#nosotros" class="block py-2 px-6 text-gray-700 hover:bg-primary/10">Nosotros</a>
+            <a href="#productos" class="block py-2 px-6 text-gray-700 hover:bg-primary/10">Productos</a>
+            <a href="#opiniones" class="block py-2 px-6 text-gray-700 hover:bg-primary/10">Opiniones</a>
+            <a href="#contacto" class="block py-2 px-6 text-gray-700 hover:bg-primary/10">Contacto</a>
+            <a href="tel:01166012667" class="block py-4 px-6 text-center bg-secondary text-white font-semibold">¡Llamar ahora!</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://res.cloudinary.com/dm2g8wqvx/image/upload/v1760748831/unnamed_izmcxu.webp');">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="relative z-10 text-center text-white px-4">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight drop-shadow-lg">De nuestra granja a tu mesa.</h1>
+                <p class="text-xl md:text-2xl font-light mb-8 max-w-2xl mx-auto drop-shadow-md">La frescura y calidad que tu familia merece, con la atención de siempre.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#productos" class="btn transform hover:-translate-y-1 backdrop-blur-sm border border-white/30 bg-primary/90 hover:bg-primary">Ver productos <i data-lucide="shopping-basket" class="w-5 h-5"></i></a>
+                    <a href="https://wa.me/5491166012667?text=Hola,%20quiero%20hacer%20un%20pedido%20en%20Granja%20Soychú" target="_blank" class="btn transform hover:-translate-y-1 backdrop-blur-sm border border-white/30 bg-secondary/90 hover:bg-secondary">Pedir por WhatsApp <i data-lucide="message-circle" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="nosotros" class="py-20 md:py-28 scroll-mt-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="animated-section section-hidden">
+                        <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1760748830/4_eeporb.jpg" alt="Interior de la Granja Soychú" class="rounded-lg shadow-xl w-full h-auto">
+                    </div>
+                    <div class="animated-section section-hidden">
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Calidad y confianza, cerca tuyo</h2>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Somos una empresa familiar dedicada a ofrecerte la mejor selección de productos frescos, elaborados y de almacén. En Granja Soychú, priorizamos la limpieza, una atención personalizada y una gran variedad para que encuentres todo lo que necesitás en un solo lugar.
+                        </p>
+                        <!-- Key Benefits -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 my-8 text-center">
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                                <i data-lucide="award" class="mx-auto text-primary h-8 w-8 mb-2"></i>
+                                <h3 class="font-semibold text-secondary">Máxima Calidad</h3>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                                <i data-lucide="shopping-basket" class="mx-auto text-primary h-8 w-8 mb-2"></i>
+                                <h3 class="font-semibold text-secondary">Gran Variedad</h3>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                                <i data-lucide="smile" class="mx-auto text-primary h-8 w-8 mb-2"></i>
+                                <h3 class="font-semibold text-secondary">Atención Amable</h3>
+                            </div>
+                        </div>
+                        <a href="#contacto" class="btn btn-primary">Conocé nuestro local <i data-lucide="map-pin" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="productos" class="py-20 md:py-28 bg-white scroll-mt-16">
+            <div class="container mx-auto px-6 text-center">
+                <div class="animated-section section-hidden">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Nuestra variedad</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-12">Frescura y sabor en cada uno de nuestros productos. Seleccionados especialmente para vos.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Product items -->
+                    <div class="group animated-section section-hidden">
+                        <div class="overflow-hidden rounded-lg shadow-lg">
+                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1760749129/unnamed_6_om9enq.webp" alt="Pollos y cortes frescos" class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <h3 class="mt-4 font-semibold text-lg text-gray-800">Pollos y Cortes</h3>
+                    </div>
+                     <div class="group animated-section section-hidden" style="transition-delay: 100ms;">
+                        <div class="overflow-hidden rounded-lg shadow-lg">
+                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1760749124/unnamed_3_a3cqvo.webp" alt="Medallones de pollo" class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <h3 class="mt-4 font-semibold text-lg text-gray-800">Medallones</h3>
+                    </div>
+                     <div class="group animated-section section-hidden" style="transition-delay: 200ms;">
+                        <div class="overflow-hidden rounded-lg shadow-lg">
+                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1760748831/3_sctfyb.jpg" alt="Embutidos y fiambres variados" class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <h3 class="mt-4 font-semibold text-lg text-gray-800">Embutidos y Fiambres</h3>
+                    </div>
+                     <div class="group animated-section section-hidden" style="transition-delay: 300ms;">
+                        <div class="overflow-hidden rounded-lg shadow-lg">
+                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1760748831/7_qawoav.jpg" alt="Productos de almacén" class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <h3 class="mt-4 font-semibold text-lg text-gray-800">Almacén</h3>
+                    </div>
+                </div>
+                <div class="mt-16 animated-section section-hidden">
+                    <a href="https://wa.me/5491166012667?text=Hola,%20quisiera%20consultar%20por%20sus%20productos." class="btn btn-secondary">Consultar catálogo completo <i data-lucide="book-open" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="opiniones" class="py-20 md:py-28 scroll-mt-16">
+             <div class="container mx-auto px-6 text-center">
+                 <div class="animated-section section-hidden">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Lo que dicen nuestros clientes</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-12">La satisfacción de quienes nos eligen es nuestro mayor orgullo. 
+                        <br class="hidden sm:block">
+                        <span class="font-semibold text-secondary">⭐ 4.6 / 5 estrellas</span> en más de 25 reseñas de Google.
+                    </p>
+                 </div>
+                 <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-xl border border-gray-200 animated-section section-hidden">
+                    <div class="text-yellow-500 flex justify-center text-3xl mb-4">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                    <blockquote class="text-gray-700 italic text-lg leading-relaxed">
+                        “En la Granja Soychú se puede comprar de todo. [...] Muy limpio e higiénico. Excelente atención. Acepta efectivo y tarjeta de débito.”
+                    </blockquote>
+                    <p class="mt-6 font-semibold text-secondary text-md">— Griselda Roselot (Local Guide)</p>
+                 </div>
+                 <div class="mt-12 animated-section section-hidden">
+                    <a href="https://wa.me/5491166012667?text=Hola,%20vi%20las%20buenas%20opiniones%20y%20quisiera%20hacer%20una%20consulta." target="_blank" class="btn btn-secondary">Consultar por WhatsApp <i data-lucide="message-circle" class="w-5 h-5"></i></a>
+                 </div>
+             </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-secondary py-20">
+            <div class="container mx-auto px-6 text-center text-white animated-section section-hidden">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Listo para hacer tu pedido?</h2>
+                <p class="text-lg text-gray-300 max-w-xl mx-auto mb-8">Contactanos por WhatsApp y te lo preparamos al instante para que solo pases a retirarlo.</p>
+                <a href="https://wa.me/5491166012667?text=Hola,%20quiero%20hacer%20un%20pedido%20en%20Granja%20Soychú" target="_blank" class="btn btn-primary text-lg">Hacer mi pedido ahora <i data-lucide="send" class="w-5 h-5"></i></a>
+            </div>
+        </section>
+        
+        <!-- Location and Contact Section -->
+        <section id="contacto" class="py-20 md:py-28 bg-white scroll-mt-16">
+            <div class="container mx-auto px-6">
+                 <div class="text-center animated-section section-hidden">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Vení a visitarnos</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-12">Estamos listos para atenderte con la mejor onda y los productos más frescos.</p>
+                 </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="animated-section section-hidden">
+                        <div class="h-96 w-full rounded-lg shadow-lg overflow-hidden">
+                             <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3286.059489241088!2d-58.69800782449035!3d-34.55211025547076!2m3!1f0!2f0!3f0!3m2!i1024!i768!4f13.1!3m3!1m2!1s0x95bcbf361c77f05b%3A0x6b7720743b0d238c!2sGranja%20Soychu!5e0!3m2!1ses-419!2sar!4v1715891782298!5m2!1ses-419!2sar" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center animated-section section-hidden" style="transition-delay: 150ms;">
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="map-pin" class="text-primary w-6 h-6 mt-1 flex-shrink-0"></i>
+                                <div>
+                                    <h3 class="font-bold text-lg text-gray-800">Dirección</h3>
+                                    <p class="text-gray-600">San José 436, B1662 Muñiz, Provincia de Buenos Aires</p>
+                                    <a href="https://maps.google.com/?q=San+José+436,+B1662+Muñiz" target="_blank" class="text-primary hover:underline font-semibold mt-1 inline-block">Cómo llegar</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="clock" class="text-primary w-6 h-6 mt-1 flex-shrink-0"></i>
+                                <div>
+                                    <h3 class="font-bold text-lg text-gray-800">Horario</h3>
+                                    <p class="text-gray-600">Lunes a Sábado: 9:00 a 20:00 hs</p>
+                                    <p class="text-gray-600">Domingos: 9:00 a 13:00 hs</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="phone" class="text-primary w-6 h-6 mt-1 flex-shrink-0"></i>
+                                <div>
+                                    <h3 class="font-bold text-lg text-gray-800">Teléfono</h3>
+                                    <a href="tel:01166012667" class="text-gray-600 hover:text-primary transition-colors">011 6601-2667</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-xl font-bold text-primary mb-2">Granja Soychú</h3>
+                    <p class="text-gray-400">La frescura del campo, en tu barrio. Calidad y atención familiar desde siempre.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2">Navegación</h3>
+                    <ul class="space-y-1 text-gray-400">
+                        <li><a href="#nosotros" class="hover:text-primary">Nosotros</a></li>
+                        <li><a href="#productos" class="hover:text-primary">Productos</a></li>
+                        <li><a href="#opiniones" class="hover:text-primary">Opiniones</a></li>
+                        <li><a href="#contacto" class="hover:text-primary">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2">Redes Sociales</h3>
+                     <div class="flex justify-center md:justify-start space-x-4">
+                         <a href="#" aria-label="Instagram" class="hover:text-accent transition-colors">
+                             <i data-lucide="instagram" class="w-6 h-6"></i>
+                         </a>
+                         <a href="#" aria-label="Facebook" class="hover:text-accent transition-colors">
+                             <i data-lucide="facebook" class="w-6 h-6"></i>
+                         </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500 text-sm">
+                <p>&copy; 2024 Granja Soychú. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const preloader = document.getElementById('preloader');
+        const header = document.getElementById('header');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Wait for all resources to load before hiding preloader and creating icons
+        window.addEventListener('load', () => {
+            preloader.classList.add('hidden');
+            // Initialize Lucide Icons after everything is loaded
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+
+        // Header style on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('header-glass', 'shadow-md');
+            } else {
+                header.classList.remove('header-glass', 'shadow-md');
+            }
+        });
+
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Close mobile menu on link click
+        mobileMenu.addEventListener('click', (e) => {
+            if(e.target.tagName === 'A') {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('section-visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.animated-section').forEach(section => {
+            observer.observe(section);
+        });
+            
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
