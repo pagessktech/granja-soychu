@@ -130,14 +130,14 @@
         #product-modal {
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
-
-        /* Carousel Styles */
-        .carousel-item {
+        
+        /* Hide scrollbar for carousel */
+        .mobile-carousel::-webkit-scrollbar {
             display: none;
-            transition: opacity 0.5s ease-in-out;
         }
-        .carousel-item.active {
-            display: block;
+        .mobile-carousel {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
         }
 
     </style>
@@ -168,6 +168,8 @@
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="#nosotros" class="text-gray-700 hover:text-primary transition-colors duration-300">Nosotros</a>
                 <a href="#productos" class="text-gray-700 hover:text-primary transition-colors duration-300">Productos</a>
+                <a href="#servicios" class="text-gray-700 hover:text-primary transition-colors duration-300">Eventos</a>
+                <a href="#a-pedido" class="text-gray-700 hover:text-primary transition-colors duration-300">A Pedido</a>
                 <a href="#opiniones" class="text-gray-700 hover:text-primary transition-colors duration-300">Opiniones</a>
                 <a href="#contacto" class="text-gray-700 hover:text-primary transition-colors duration-300">Contacto</a>
                 <a href="tel:01166012667" class="btn btn-secondary text-sm !px-5 !py-2.5">¡Llamar ahora! <i data-lucide="phone" class="w-4 h-4"></i></a>
@@ -180,6 +182,8 @@
         <div id="mobile-menu" class="hidden md:hidden bg-background/95 backdrop-blur-sm">
             <a href="#nosotros" class="block py-2 px-6 text-gray-700 hover:bg-primary/10">Nosotros</a>
             <a href="#productos" class="block py-2 px-6 text-gray-700 hover:bg-primary/10">Productos</a>
+            <a href="#servicios" class="block py-2 px-6 text-gray-700 hover:bg-primary/10">Eventos</a>
+            <a href="#a-pedido" class="block py-2 px-6 text-gray-700 hover:bg-primary/10">A Pedido</a>
             <a href="#opiniones" class="block py-2 px-6 text-gray-700 hover:bg-primary/10">Opiniones</a>
             <a href="#contacto" class="block py-2 px-6 text-gray-700 hover:bg-primary/10">Contacto</a>
             <a href="tel:01166012667" class="block py-4 px-6 text-center bg-secondary text-white font-semibold">¡Llamar ahora!</a>
@@ -205,7 +209,7 @@
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="animated-section section-hidden">
-                        <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1760748830/4_eeporb.jpg" alt="Interior de la Granja Soychú" class="rounded-lg shadow-xl w-full h-auto">
+                        <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761067929/Imagen_de_WhatsApp_2025-02-22_a_las_14.21.33_2c8f34d9_evvq2j.jpg" alt="Interior de la Granja Soychú" class="rounded-lg shadow-xl w-full h-auto">
                     </div>
                     <div class="animated-section section-hidden">
                         <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Calidad y confianza, cerca tuyo</h2>
@@ -233,19 +237,56 @@
             </div>
         </section>
 
+        <!-- Our Specialty Section -->
+        <section id="especialidad" class="py-20 md:py-28 bg-white scroll-mt-16">
+            <div class="container mx-auto px-6">
+                <div class="text-center animated-section section-hidden">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Nuestras Especialidades</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-12">Elaboraciones caseras hechas con los mejores ingredientes. ¡Perfectas para darte un gusto o para tus eventos!</p>
+                </div>
+
+                <div class="animated-section section-hidden">
+                    <div class="flex overflow-x-auto md:grid md:grid-cols-3 lg:grid-cols-4 gap-6 pb-4 md:pb-0 mobile-carousel">
+                        <!-- Images -->
+                        <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
+                           <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761068045/lmcbxgzca9s3u9k8kvoq.jpg" alt="Especialidad 1" class="w-full h-80 object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
+                           <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761068046/Imagen_de_WhatsApp_2025-07-15_a_las_17.02.50_af688d49_cfrzis.jpg" alt="Especialidad 2" class="w-full h-80 object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
+                           <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761068049/Imagen_de_WhatsApp_2025-07-15_a_las_17.02.51_cfa91268_tmsb40.jpg" alt="Especialidad 3" class="w-full h-80 object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
+                           <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761068050/Imagen_de_WhatsApp_2025-07-15_a_las_17.04.21_9ec65b8d_xvu3om.jpg" alt="Especialidad 4" class="w-full h-80 object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
+                           <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761068098/Imagen_de_WhatsApp_2025-07-15_a_las_17.08.44_d50dd14b_isier9.jpg" alt="Especialidad 5" class="w-full h-80 object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
+                           <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761068103/Imagen_de_WhatsApp_2025-08-04_a_las_09.31.13_52fbd033_ydc33u.jpg" alt="Especialidad 6" class="w-full h-80 object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
+                           <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761068116/Imagen_de_WhatsApp_2025-08-04_a_las_09.31.13_98bf6eec_mm6s4l.jpg" alt="Especialidad 7" class="w-full h-80 object-cover rounded-lg shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Products Section -->
-        <section id="productos" class="py-20 md:py-28 bg-white scroll-mt-16">
+        <section id="productos" class="py-20 md:py-28 bg-background scroll-mt-16">
             <div class="container mx-auto px-6 text-center">
                 <div class="animated-section section-hidden">
                     <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Explorá nuestra variedad</h2>
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-12">Hacé clic en cada categoría para descubrir los productos que tenemos para vos.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Category Card: Congelados -->
                     <div class="category-card animated-section section-hidden" data-category="congelados">
                         <div class="relative group cursor-pointer">
-                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058613/aros_decebolla_fk7ab9.png" alt="Congelados" class="rounded-lg shadow-lg w-full h-64 object-cover">
+                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065361/papas_crinkle_pxkfmk.png" alt="Congelados" class="rounded-lg shadow-lg w-full h-64 object-cover">
                             <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors duration-300 rounded-lg flex flex-col justify-center items-center text-white p-4">
                                 <h3 class="text-2xl font-bold">Congelados</h3>
                                 <p class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">Ver más</p>
@@ -255,9 +296,9 @@
                      <!-- Category Card: Embutidos y Elaborados -->
                      <div class="category-card animated-section section-hidden" data-category="elaborados" style="transition-delay: 100ms;">
                         <div class="relative group cursor-pointer">
-                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/bondiola_wkmdr0.png" alt="Embutidos y Elaborados" class="rounded-lg shadow-lg w-full h-64 object-cover">
+                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761066089/provoletas_oqzaee.png" alt="Embutidos y Elaborados" class="rounded-lg shadow-lg w-full h-64 object-cover">
                             <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors duration-300 rounded-lg flex flex-col justify-center items-center text-white p-4">
-                                <h3 class="text-2xl font-bold">Embutidos y Elaborados</h3>
+                                <h3 class="text-2xl font-bold text-center">Embutidos y Elaborados</h3>
                                 <p class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">Ver más</p>
                             </div>
                         </div>
@@ -265,9 +306,19 @@
                     <!-- Category Card: Cortes Frescos -->
                     <div class="category-card animated-section section-hidden" data-category="frescos" style="transition-delay: 200ms;">
                         <div class="relative group cursor-pointer">
-                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058621/churrasco_pataymuslo_gdwoda.png" alt="Cortes Frescos" class="rounded-lg shadow-lg w-full h-64 object-cover">
+                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761066184/ribs_decerdo_lklamk.png" alt="Cortes Frescos" class="rounded-lg shadow-lg w-full h-64 object-cover">
                             <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors duration-300 rounded-lg flex flex-col justify-center items-center text-white p-4">
                                 <h3 class="text-2xl font-bold">Cortes Frescos</h3>
+                                <p class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">Ver más</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Category Card: Rebozados y Croquetas -->
+                    <div class="category-card animated-section section-hidden" data-category="rebozados" style="transition-delay: 300ms;">
+                        <div class="relative group cursor-pointer">
+                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761066185/ricosaurios_pollo_uim5sk.png" alt="Rebozados y Croquetas" class="rounded-lg shadow-lg w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors duration-300 rounded-lg flex flex-col justify-center items-center text-white p-4">
+                                <h3 class="text-2xl font-bold text-center">Rebozados y Croquetas</h3>
                                 <p class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">Ver más</p>
                             </div>
                         </div>
@@ -276,6 +327,66 @@
 
                 <div class="mt-16 animated-section section-hidden">
                     <a href="https://wa.me/5491166012667?text=Hola,%20quisiera%20consultar%20por%20sus%20productos." class="btn btn-secondary">Consultar catálogo completo <i data-lucide="book-open" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="servicios" class="py-20 md:py-28 scroll-mt-16">
+            <div class="container mx-auto px-6 text-center">
+                <div class="animated-section section-hidden">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Picadas y Comidas para Eventos</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">¿Tenés una juntada, un cumpleaños o simplemente no querés cocinar? Te preparamos las mejores picadas y platos listos para que solo te preocupes por disfrutar. ¡Consultanos!</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 animated-section section-hidden">
+                    <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761067276/brocoliquesoypancetacircular_dw5hfm.png" alt="Picada de brócoli, queso y panceta" class="rounded-full aspect-square object-cover shadow-lg border-4 border-white">
+                    <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761067277/BROCOLIQUESOYPANCETI%C3%91A_btbouw.png" alt="Bocaditos de brócoli, queso y panceta" class="rounded-full aspect-square object-cover shadow-lg border-4 border-white">
+                    <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761067278/circulararrollado_uo4h2m.png" alt="Arrollado de pollo" class="rounded-full aspect-square object-cover shadow-lg border-4 border-white">
+                    <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761067277/circularempanadas_gmepky.png" alt="Empanadas caseras" class="rounded-full aspect-square object-cover shadow-lg border-4 border-white">
+                    <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761067283/circulartaco_pwjg31.png" alt="Tacos" class="rounded-full aspect-square object-cover shadow-lg border-4 border-white">
+                    <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761067284/circulartarta_j0a6l5.png" alt="Tarta casera" class="rounded-full aspect-square object-cover shadow-lg border-4 border-white">
+                    <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761067312/prueba_bxmfnm.png" alt="Plato especial" class="rounded-full aspect-square object-cover shadow-lg border-4 border-white col-span-2 md:col-span-1">
+                </div>
+
+                <div class="mt-16 animated-section section-hidden">
+                    <a href="https://wa.me/5491166012667?text=Hola,%20quisiera%20consultar%20por%20las%20picadas%20y%20comidas%20para%20eventos." class="btn btn-primary">¡Pedí para tu evento! <i data-lucide="party-popper" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- On-Demand Products Section -->
+        <section id="a-pedido" class="py-20 md:py-28 bg-white scroll-mt-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                     <div class="animated-section section-hidden">
+                        <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761067581/apedido_k3jqmq.png" alt="Productos a pedido - Pernil, Pollo Relleno, Vitel Toné" class="rounded-lg shadow-xl w-full h-auto">
+                    </div>
+                    <div class="animated-section section-hidden">
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">¡Nuevo! Productos a Pedido</h2>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Para tus fiestas y eventos especiales, consultá por nuestros productos de marca propia y por encargue. ¡Sabores caseros y la calidad de siempre para sorprender a tus invitados!
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-700">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-primary mr-3"></i>
+                                <span>Pernil de cerdo</span>
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-primary mr-3"></i>
+                                <span>Pollo relleno</span>
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-primary mr-3"></i>
+                                <span>Vitel toné</span>
+                            </li>
+                             <li class="flex items-center text-gray-700">
+                                <i data-lucide="plus-circle" class="w-5 h-5 text-primary mr-3"></i>
+                                <span>¡Y mucho más!</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/5491166012667?text=Hola,%20quisiera%20consultar%20por%20los%20productos%20a%20pedido." target="_blank" class="btn btn-secondary">Hacenos tu pedido <i data-lucide="message-circle" class="w-5 h-5"></i></a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -368,55 +479,30 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-secondary text-white">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-                <div>
-                    <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058407/LOGO_MAU_qjr4sc.png" alt="Logo Granja Soychú" class="h-12 w-auto mx-auto md:mx-0 mb-4">
-                    <p class="text-gray-400">La frescura del campo, en tu barrio. Calidad y atención familiar desde siempre.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-2">Navegación</h3>
-                    <ul class="space-y-1 text-gray-400">
-                        <li><a href="#nosotros" class="hover:text-primary">Nosotros</a></li>
-                        <li><a href="#productos" class="hover:text-primary">Productos</a></li>
-                        <li><a href="#opiniones" class="hover:text-primary">Opiniones</a></li>
-                        <li><a href="#contacto" class="hover:text-primary">Contacto</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-2">Redes Sociales</h3>
-                     <div class="flex justify-center md:justify-start space-x-4">
-                         <a href="#" aria-label="Instagram" class="hover:text-accent transition-colors">
-                             <i data-lucide="instagram" class="w-6 h-6"></i>
-                         </a>
-                         <a href="#" aria-label="Facebook" class="hover:text-accent transition-colors">
-                             <i data-lucide="facebook" class="w-6 h-6"></i>
-                         </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500 text-sm">
-                <p>&copy; 2024 Granja Soychú. Todos los derechos reservados.</p>
-            </div>
+    <footer class="bg-secondary text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <a href="#home">
+                 <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058407/LOGO_MAU_qjr4sc.png" alt="Logo Granja Soychú" class="mx-auto mb-4 h-12 w-auto">
+            </a>
+            <p class="text-gray-400 mb-4">La frescura del campo, en tu barrio.</p>
+            <p class="text-sm text-gray-500">&copy; 2024 Granja Soychú. Todos los derechos reservados.</p>
         </div>
     </footer>
 
      <!-- Product Modal -->
     <div id="product-modal" class="fixed inset-0 bg-black/70 z-[100] flex items-center justify-center p-4 opacity-0 invisible">
-        <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-2xl relative transform scale-95 transition-transform duration-300">
-            <button id="modal-close-btn" class="absolute -top-4 -right-4 bg-primary text-white rounded-full h-10 w-10 flex items-center justify-center shadow-lg z-10">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-            <div id="carousel-container" class="relative">
-                <!-- Carousel images will be inserted here by JS -->
+        <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-lg relative transform scale-95 transition-transform duration-300 flex flex-col" style="max-height: 85vh;">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-4 border-b">
+                <h3 id="modal-title" class="text-xl font-bold text-secondary"></h3>
+                <button id="modal-close-btn" class="text-gray-500 hover:text-primary">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
             </div>
-            <button id="carousel-prev" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/50 hover:bg-white/80 rounded-full p-2 text-secondary">
-                <i data-lucide="chevron-left" class="w-6 h-6"></i>
-            </button>
-            <button id="carousel-next" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/50 hover:bg-white/80 rounded-full p-2 text-secondary">
-                <i data-lucide="chevron-right" class="w-6 h-6"></i>
-            </button>
+            <!-- Scrollable Content -->
+            <div id="modal-image-container" class="p-6 space-y-6 overflow-y-auto">
+                <!-- Images will be inserted here by JS -->
+            </div>
         </div>
     </div>
 
@@ -483,75 +569,128 @@
                 observer.observe(section);
             });
             
-            // --- MODAL AND CAROUSEL LOGIC ---
+            // --- MODAL LOGIC (Updated for scrolling list) ---
             const productImages = {
-                congelados: [
-                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058613/aros_decebolla_fk7ab9.png',
-                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058614/bastoncitos_depescado_xwnu7a.png',
-                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/brocoli_precocido_dfigem.png',
-                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/chipa_pw5n7v.png'
-                ],
-                elaborados: [
-                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/bondiola_wkmdr0.png',
-                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058614/arrollado_depollo_jimxtb.png',
-                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/chorizo_colorado_r6a99x.png',
-                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/chorizodecerdo_bombom_t8nxgb.png'
-                ],
-                frescos: [
-                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/brochette_depollo_ihxbe8.png',
-                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058621/churrasco_pataymuslo_gdwoda.png'
-                ]
+                congelados: {
+                    title: 'Congelados',
+                    images: [
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058613/aros_decebolla_fk7ab9.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058614/bastoncitos_depescado_xwnu7a.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/brocoli_precocido_dfigem.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/chipa_pw5n7v.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761059217/espinaca_precocida_dxua4g.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064447/espinaca_precocida_zdaw4p.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065072/nuggets_sadia_z0yoes.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065076/papas_acanaladas_kd3gjn.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065077/papas_caritas_xbhokl.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065361/papas_crinkle_pxkfmk.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065362/papas_noisette_kxudbn.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065362/papas_trad_qoksej.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065366/patitas_pollo_ugrblz.png'
+                    ]
+                },
+                elaborados: {
+                    title: 'Embutidos y Elaborados',
+                    images: [
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/bondiola_wkmdr0.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058614/arrollado_depollo_jimxtb.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/chorizo_colorado_r6a99x.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/chorizodecerdo_bombom_t8nxgb.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761059217/empanadas_depollo_yiohpy.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064448/hamburguesa_decarne_mjbubl.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064449/hamburguesa_decarneparrillera_l0birg.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064454/hamburguesa_depollo_ap6et1.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064455/hamburguesa_depolloyespinaca_ozncz4.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064455/hamburguesa_depolloymorron_fvmfh3.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065069/morcilla_bombom_ip1vs8.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065075/panceta_ahumada_nbymu1.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761066089/provoletas_oqzaee.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761066089/queso_sardo_bbjqjk.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761066090/queso_pategras_ydpfbw.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761066089/quesitos_condimentados_ydpvhg.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761066184/rellenos_detacos_jeejxj.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761066190/salamines_rkjokx.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761066613/salchicha_ahumada_c388r3.png'
+                    ]
+                },
+                frescos: {
+                    title: 'Cortes Frescos',
+                    images: [
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/brochette_depollo_ihxbe8.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058621/churrasco_pataymuslo_gdwoda.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761059216/costillitas_decerdo_nbupip.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761059216/churrasquito_decerdo_qfxeqa.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064448/filet_finashierbas_ackcrz.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065070/muslo_pollo_aokza3.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065366/patas_pollo_shpjhn.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065367/pechugas_pollo_yrlgqx.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761066184/ribs_decerdo_lklamk.png'
+                    ]
+                },
+                rebozados: {
+                    title: 'Rebozados y Croquetas',
+                    images: [
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761059216/filet_alaromana_tg9wpk.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761059216/croquetas_brocoli_p3hgnf.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761059216/croquetas_calabazaqueso_lufn3d.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761059217/croquetas_espinaca_r2qxip.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761059217/croquetas_papajamonqueso_icy0v6.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761059217/croquetas_espinacaqueso_y9onx4.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064447/filet_alaromana_ppwqy9.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064448/formitas_depescado_kxmivi.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064448/filet_rebosado_sa9d5v.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064773/medallon_brocoliqueso_mgempm.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064774/medallon_depescado_j9cnn0.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064774/medall%C3%B3n_polloespinaca_yg4mdh.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064774/medallon_pollo_i3xclp.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064774/medallon_pollojamonyqueso_kop4bp.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064779/milanesa_decarne_est6ps.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064780/milanesa_decerdo_ljc7fn.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064780/milanesa_depollo_azggq3.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064782/milanesa_dequinoa_paokgq.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064785/milanesa_desoja_vhc6p1.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065065/milas_rellenasalbahacaytomate_uxowyf.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065066/milas_rellenasroquefort_syvsxl.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065066/milas_rellenaspollojamonyqueso_tqrfj9.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065073/palitosdepollo_finashierbas_oqkdv1.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065370/pechuguita_alverdeo_ztjp2l.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065371/pechuguita_crispy_mk28wt.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065372/pechuguita_crocante_ersjgy.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761065376/pochoclos_depollo_zfnvv3.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761066089/quesitos_rebosados_x8znr5.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761066124/rabas_mkzqtl.png',
+                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761066185/ricosaurios_pollo_uim5sk.png'
+                    ]
+                }
             };
 
             const modal = document.getElementById('product-modal');
             const modalContent = document.getElementById('modal-content');
             const modalCloseBtn = document.getElementById('modal-close-btn');
             const categoryCards = document.querySelectorAll('.category-card');
-            const carouselContainer = document.getElementById('carousel-container');
-            const prevBtn = document.getElementById('carousel-prev');
-            const nextBtn = document.getElementById('carousel-next');
-
-            let currentSlide = 0;
-            let slides = [];
-
-            function showSlide(index) {
-                slides.forEach((slide, i) => {
-                    slide.classList.remove('active');
-                    if (i === index) {
-                        slide.classList.add('active');
-                    }
-                });
-            }
-
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            }
-
-            function prevSlide() {
-                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                showSlide(currentSlide);
-            }
+            const modalImageContainer = document.getElementById('modal-image-container');
+            const modalTitle = document.getElementById('modal-title');
 
             function openModal(category) {
-                const images = productImages[category];
-                if (!images) return;
+                const categoryData = productImages[category];
+                if (!categoryData) return;
 
-                carouselContainer.innerHTML = ''; // Clear previous images
-                images.forEach((src, index) => {
-                    const div = document.createElement('div');
-                    div.className = 'carousel-item w-full';
-                    if (index === 0) div.classList.add('active');
-                    div.innerHTML = `<img src="${src}" class="rounded-lg w-full h-auto max-h-[70vh] object-contain">`;
-                    carouselContainer.appendChild(div);
+                modalTitle.textContent = categoryData.title;
+                modalImageContainer.innerHTML = ''; // Clear previous images
+                
+                categoryData.images.forEach(src => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = `Producto de la categoría ${categoryData.title}`;
+                    img.className = 'w-full h-auto rounded-lg shadow-md';
+                    modalImageContainer.appendChild(img);
                 });
-
-                slides = carouselContainer.querySelectorAll('.carousel-item');
-                currentSlide = 0;
-                showSlide(currentSlide);
 
                 modal.classList.remove('invisible', 'opacity-0');
                 modalContent.classList.remove('scale-95');
+                if (typeof lucide !== 'undefined') {
+                   lucide.createIcons(); // Re-create icons if any are in the modal
+                }
             }
 
             function closeModal() {
@@ -570,17 +709,17 @@
 
             modalCloseBtn.addEventListener('click', closeModal);
             modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
+                if (e.target.closest('#modal-content') === null) {
                     closeModal();
                 }
             });
-            nextBtn.addEventListener('click', nextSlide);
-            prevBtn.addEventListener('click', prevSlide);
         });
             
     </script>
 </body>
 </html>
+
+
 
 
 
