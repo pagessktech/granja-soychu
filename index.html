@@ -125,6 +125,21 @@
              backdrop-filter: blur(10px);
              -webkit-backdrop-filter: blur(10px);
         }
+
+        /* Modal Styles */
+        #product-modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        /* Carousel Styles */
+        .carousel-item {
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .carousel-item.active {
+            display: block;
+        }
+
     </style>
 </head>
 <body class="antialiased">
@@ -132,7 +147,7 @@
     <!-- Preloader -->
     <div id="preloader">
         <div class="text-center">
-            <h2 class="text-3xl font-bold text-primary mb-4">Granja Soychú</h2>
+            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058407/LOGO_MAU_qjr4sc.png" alt="Logo Granja Soychú" class="mx-auto mb-6 w-48 animate-pulse">
             <div class="loading-bar-container">
                 <div class="loading-bar"></div>
             </div>
@@ -147,7 +162,9 @@
     <!-- Header -->
     <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold text-primary">Granja Soychú</a>
+            <a href="#home" class="h-10">
+                <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058407/LOGO_MAU_qjr4sc.png" alt="Logo Granja Soychú" class="h-full w-auto">
+            </a>
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="#nosotros" class="text-gray-700 hover:text-primary transition-colors duration-300">Nosotros</a>
                 <a href="#productos" class="text-gray-700 hover:text-primary transition-colors duration-300">Productos</a>
@@ -220,36 +237,43 @@
         <section id="productos" class="py-20 md:py-28 bg-white scroll-mt-16">
             <div class="container mx-auto px-6 text-center">
                 <div class="animated-section section-hidden">
-                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Nuestra variedad</h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-12">Frescura y sabor en cada uno de nuestros productos. Seleccionados especialmente para vos.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Explorá nuestra variedad</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-12">Hacé clic en cada categoría para descubrir los productos que tenemos para vos.</p>
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <!-- Product items -->
-                    <div class="group animated-section section-hidden">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1760749129/unnamed_6_om9enq.webp" alt="Pollos y cortes frescos" class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-500">
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Category Card: Congelados -->
+                    <div class="category-card animated-section section-hidden" data-category="congelados">
+                        <div class="relative group cursor-pointer">
+                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058613/aros_decebolla_fk7ab9.png" alt="Congelados" class="rounded-lg shadow-lg w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors duration-300 rounded-lg flex flex-col justify-center items-center text-white p-4">
+                                <h3 class="text-2xl font-bold">Congelados</h3>
+                                <p class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">Ver más</p>
+                            </div>
                         </div>
-                        <h3 class="mt-4 font-semibold text-lg text-gray-800">Pollos y Cortes</h3>
                     </div>
-                     <div class="group animated-section section-hidden" style="transition-delay: 100ms;">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1760749124/unnamed_3_a3cqvo.webp" alt="Medallones de pollo" class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-500">
+                     <!-- Category Card: Embutidos y Elaborados -->
+                     <div class="category-card animated-section section-hidden" data-category="elaborados" style="transition-delay: 100ms;">
+                        <div class="relative group cursor-pointer">
+                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/bondiola_wkmdr0.png" alt="Embutidos y Elaborados" class="rounded-lg shadow-lg w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors duration-300 rounded-lg flex flex-col justify-center items-center text-white p-4">
+                                <h3 class="text-2xl font-bold">Embutidos y Elaborados</h3>
+                                <p class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">Ver más</p>
+                            </div>
                         </div>
-                        <h3 class="mt-4 font-semibold text-lg text-gray-800">Medallones</h3>
                     </div>
-                     <div class="group animated-section section-hidden" style="transition-delay: 200ms;">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1760748831/3_sctfyb.jpg" alt="Embutidos y fiambres variados" class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <!-- Category Card: Cortes Frescos -->
+                    <div class="category-card animated-section section-hidden" data-category="frescos" style="transition-delay: 200ms;">
+                        <div class="relative group cursor-pointer">
+                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058621/churrasco_pataymuslo_gdwoda.png" alt="Cortes Frescos" class="rounded-lg shadow-lg w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors duration-300 rounded-lg flex flex-col justify-center items-center text-white p-4">
+                                <h3 class="text-2xl font-bold">Cortes Frescos</h3>
+                                <p class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">Ver más</p>
+                            </div>
                         </div>
-                        <h3 class="mt-4 font-semibold text-lg text-gray-800">Embutidos y Fiambres</h3>
-                    </div>
-                     <div class="group animated-section section-hidden" style="transition-delay: 300ms;">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1760748831/7_qawoav.jpg" alt="Productos de almacén" class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-500">
-                        </div>
-                        <h3 class="mt-4 font-semibold text-lg text-gray-800">Almacén</h3>
                     </div>
                 </div>
+
                 <div class="mt-16 animated-section section-hidden">
                     <a href="https://wa.me/5491166012667?text=Hola,%20quisiera%20consultar%20por%20sus%20productos." class="btn btn-secondary">Consultar catálogo completo <i data-lucide="book-open" class="w-5 h-5"></i></a>
                 </div>
@@ -348,7 +372,7 @@
         <div class="container mx-auto px-6 py-12">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
                 <div>
-                    <h3 class="text-xl font-bold text-primary mb-2">Granja Soychú</h3>
+                    <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058407/LOGO_MAU_qjr4sc.png" alt="Logo Granja Soychú" class="h-12 w-auto mx-auto md:mx-0 mb-4">
                     <p class="text-gray-400">La frescura del campo, en tu barrio. Calidad y atención familiar desde siempre.</p>
                 </div>
                 <div>
@@ -378,69 +402,187 @@
         </div>
     </footer>
 
+     <!-- Product Modal -->
+    <div id="product-modal" class="fixed inset-0 bg-black/70 z-[100] flex items-center justify-center p-4 opacity-0 invisible">
+        <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-2xl relative transform scale-95 transition-transform duration-300">
+            <button id="modal-close-btn" class="absolute -top-4 -right-4 bg-primary text-white rounded-full h-10 w-10 flex items-center justify-center shadow-lg z-10">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div id="carousel-container" class="relative">
+                <!-- Carousel images will be inserted here by JS -->
+            </div>
+            <button id="carousel-prev" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/50 hover:bg-white/80 rounded-full p-2 text-secondary">
+                <i data-lucide="chevron-left" class="w-6 h-6"></i>
+            </button>
+            <button id="carousel-next" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/50 hover:bg-white/80 rounded-full p-2 text-secondary">
+                <i data-lucide="chevron-right" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+
+
     <script>
-        const preloader = document.getElementById('preloader');
-        const header = document.getElementById('header');
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        document.addEventListener('DOMContentLoaded', () => {
 
-        // Wait for all resources to load before hiding preloader and creating icons
-        window.addEventListener('load', () => {
-            preloader.classList.add('hidden');
-            // Initialize Lucide Icons after everything is loaded
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            }
-        });
+            const preloader = document.getElementById('preloader');
+            const header = document.getElementById('header');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-        // Header style on scroll
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('header-glass', 'shadow-md');
-            } else {
-                header.classList.remove('header-glass', 'shadow-md');
-            }
-        });
-
-        // Mobile menu toggle
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        // Close mobile menu on link click
-        mobileMenu.addEventListener('click', (e) => {
-            if(e.target.tagName === 'A') {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('section-visible');
+            // Wait for all resources to load before hiding preloader and creating icons
+            window.addEventListener('load', () => {
+                preloader.classList.add('hidden');
+                // Initialize Lucide Icons after everything is loaded
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
                 }
             });
-        }, {
-            threshold: 0.1
-        });
 
-        document.querySelectorAll('.animated-section').forEach(section => {
-            observer.observe(section);
+            // Header style on scroll
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-glass', 'shadow-md');
+                } else {
+                    header.classList.remove('header-glass', 'shadow-md');
+                }
+            });
+
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            // Close mobile menu on link click
+            mobileMenu.addEventListener('click', (e) => {
+                if(e.target.tagName === 'A') {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('section-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.animated-section').forEach(section => {
+                observer.observe(section);
+            });
+            
+            // --- MODAL AND CAROUSEL LOGIC ---
+            const productImages = {
+                congelados: [
+                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058613/aros_decebolla_fk7ab9.png',
+                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058614/bastoncitos_depescado_xwnu7a.png',
+                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/brocoli_precocido_dfigem.png',
+                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/chipa_pw5n7v.png'
+                ],
+                elaborados: [
+                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/bondiola_wkmdr0.png',
+                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058614/arrollado_depollo_jimxtb.png',
+                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/chorizo_colorado_r6a99x.png',
+                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/chorizodecerdo_bombom_t8nxgb.png'
+                ],
+                frescos: [
+                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/brochette_depollo_ihxbe8.png',
+                    'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058621/churrasco_pataymuslo_gdwoda.png'
+                ]
+            };
+
+            const modal = document.getElementById('product-modal');
+            const modalContent = document.getElementById('modal-content');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            const categoryCards = document.querySelectorAll('.category-card');
+            const carouselContainer = document.getElementById('carousel-container');
+            const prevBtn = document.getElementById('carousel-prev');
+            const nextBtn = document.getElementById('carousel-next');
+
+            let currentSlide = 0;
+            let slides = [];
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                    if (i === index) {
+                        slide.classList.add('active');
+                    }
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            function openModal(category) {
+                const images = productImages[category];
+                if (!images) return;
+
+                carouselContainer.innerHTML = ''; // Clear previous images
+                images.forEach((src, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'carousel-item w-full';
+                    if (index === 0) div.classList.add('active');
+                    div.innerHTML = `<img src="${src}" class="rounded-lg w-full h-auto max-h-[70vh] object-contain">`;
+                    carouselContainer.appendChild(div);
+                });
+
+                slides = carouselContainer.querySelectorAll('.carousel-item');
+                currentSlide = 0;
+                showSlide(currentSlide);
+
+                modal.classList.remove('invisible', 'opacity-0');
+                modalContent.classList.remove('scale-95');
+            }
+
+            function closeModal() {
+                modal.classList.add('opacity-0');
+                modalContent.classList.add('scale-95');
+                 setTimeout(() => {
+                    modal.classList.add('invisible');
+                }, 300);
+            }
+
+            categoryCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    openModal(card.dataset.category);
+                });
+            });
+
+            modalCloseBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
         });
             
     </script>
 </body>
 </html>
+
+
 
 
 
