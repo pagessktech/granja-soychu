@@ -151,6 +151,33 @@
             box-shadow: 0 8px 25px rgba(254, 44, 85, 0.4); /* Glow effect */
         }
 
+        /* NUEVO: Carousel for "Nosotros" */
+        #nosotros-carousel .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.6s ease-in-out;
+        }
+        #nosotros-carousel .carousel-slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        #nosotros-carousel .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #nosotros-carousel .carousel-dot.active {
+            background-color: white;
+        }
+
     </style>
 </head>
 <body class="antialiased">
@@ -170,7 +197,8 @@
     <!-- Floating Instagram Button --><a href="https://www.instagram.com/prettejuliocesar" target="_blank" class="fixed bottom-24 right-6 z-40 bg-gradient-to-b from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300" aria-label="Seguir en Instagram">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
     </a>
-    <!-- Floating TikTok Button (REMOVED) --><!-- Header --><header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+    
+    <!-- Header --><header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="h-10">
                 <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058407/LOGO_MAU_qjr4sc.png" alt="Logo Granja Soychú" class="h-full w-auto">
@@ -228,9 +256,45 @@
         <!-- About Us Section --><section id="nosotros" class="py-20 md:py-28 scroll-mt-16">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- INICIO: Carrusel "Nosotros" -->
                     <div class="animated-section section-hidden">
-                        <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761230764/Imagen_de_WhatsApp_2025-10-21_a_las_16.33.36_70e3bfb3_o1l2od.jpg" alt="Interior de la Granja Soychú" class="rounded-lg shadow-xl w-full h-auto">
+                        <div id="nosotros-carousel" class="relative w-full rounded-lg shadow-xl overflow-hidden" style="aspect-ratio: 4/3;">
+                            <!-- Slides -->
+                            <div class="carousel-slide active">
+                                <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761230764/Imagen_de_WhatsApp_2025-10-21_a_las_16.33.36_70e3bfb3_o1l2od.jpg" alt="Interior de la Granja Soychú 1" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1762303199/Imagen_de_WhatsApp_2025-11-04_a_las_21.12.03_859e2037_fvj0ge.jpg" alt="Interior de la Granja Soychú 2" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1762303198/Imagen_de_WhatsApp_2025-11-04_a_las_21.12.02_63e9fc59_fircnr.jpg" alt="Interior de la Granja Soychú 3" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1762303186/Imagen_de_WhatsApp_2025-11-04_a_las_21.12.01_671aad4f_ges0f1.jpg" alt="Interior de la Granja Soychú 4" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1762303186/Imagen_de_WhatsApp_2025-11-04_a_las_21.11.57_0cf6f942_em0sd8.jpg" alt="Interior de la Granja Soychú 5" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1762303185/Imagen_de_WhatsApp_2025-11-04_a_las_21.11.47_24cd0348_et7eme.jpg" alt="Interior de la Granja Soychú 6" class="w-full h-full object-cover">
+                            </div>
+
+                            <!-- Navigation -->
+                            <button class="carousel-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors z-10">
+                                <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                            </button>
+                            <button class="carousel-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors z-10">
+                                <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                            </button>
+
+                            <!-- Dots -->
+                            <div class="carousel-dots absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+                                <!-- Dots se generan con JS -->
+                            </div>
+                        </div>
                     </div>
+                    <!-- FIN: Carrusel "Nosotros" -->
+
                     <div class="animated-section section-hidden">
                         <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Nuestra Historia: Pasión por la Calidad</h2>
                         <div class="text-lg text-gray-600 mb-6 space-y-4">
@@ -293,6 +357,34 @@
                         </div>
                         <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
                            <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761068116/Imagen_de_WhatsApp_2025-08-04_a_las_09.31.13_98bf6eec_mm6s4l.jpg" alt="Especialidad 7" class="w-full h-80 object-cover rounded-lg shadow-lg">
+                        </div>
+                        <!-- NUEVAS IMÁGENES AÑADIDAS -->
+                        <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
+                           <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1762303185/Imagen_de_WhatsApp_2025-11-04_a_las_21.11.46_fe74e8b4_nbjsua.jpg" alt="Especialidad 8" class="w-full h-80 object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
+                           <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1762303185/Imagen_de_WhatsApp_2025-11-04_a_las_21.11.50_55bc75a2_cyd3c1.jpg" alt="Especialidad 9" class="w-full h-80 object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
+                           <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1762303185/Imagen_de_WhatsApp_2025-11-04_a_las_21.11.46_e63e7364_uh2vug.jpg" alt="Especialidad 10" class="w-full h-80 object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
+                           <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1762303186/Imagen_de_WhatsApp_2025-11-04_a_las_21.12.00_2de417d2_zoxxwy.jpg" alt="Especialidad 11" class="w-full h-80 object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
+                           <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1762303186/Imagen_de_WhatsApp_2025-11-04_a_las_21.11.46_da01a0ce_wshlzj.jpg" alt="Especialidad 12" class="w-full h-80 object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
+                           <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1762303198/Imagen_de_WhatsApp_2025-11-04_a_las_21.12.02_804c4626_gurc2f.jpg" alt="Especialidad 13" class="w-full h-80 object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
+                           <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1762303199/Imagen_de_WhatsApp_2025-11-04_a_las_21.12.03_27e5b6eb_g52j4o.jpg" alt="Especialidad 14" class="w-full h-80 object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
+                           <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1762303199/Imagen_de_WhatsApp_2025-11-04_a_las_21.12.04_c89452bd_qjq0kr.jpg" alt="Especialidad 15" class="w-full h-80 object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-4/5 sm:w-2/3 md:w-auto">
+                           <img src="https://res.cloudinary.com/dm2g8wqvx/image/upload/v1762303199/Imagen_de_WhatsApp_2025-11-04_a_las_21.12.03_65c17547_mlu07u.jpg" alt="Especialidad 16" class="w-full h-80 object-cover rounded-lg shadow-lg">
                         </div>
                     </div>
                 </div>
@@ -485,8 +577,9 @@
                                 <i data-lucide="clock" class="text-primary w-6 h-6 mt-1 flex-shrink-0"></i>
                                 <div>
                                     <h3 class="font-bold text-lg text-gray-800">Horario</h3>
-                                    <p class="text-gray-600">Lunes a Sábado: 9:00 a 20:00 hs</p>
-                                    <p class="text-gray-600">Domingos: 9:00 a 13:00 hs</p>
+                                    <p class="text-gray-600">Lunes a Viernes: 9:00 a 20:00 hs</p>
+                                    <p class="text-gray-600">Sábados: 9:00 a 13:00 hs</p>
+                                    <p class="text-gray-600">Domingos: Cerrado</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
@@ -632,7 +725,7 @@
                         'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058614/arrollado_depollo_jimxtb.png',
                         'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/chorizo_colorado_r6a99x.png',
                         'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761058615/chorizodecerdo_bombom_t8nxgb.png',
-                        'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761059217/empanadas_depollo_yiohpy.png',
+                        'httpss://res.cloudinary.com/dm2g8wqvx/image/upload/v1761059217/empanadas_depollo_yiohpy.png',
                         'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064448/hamburguesa_decarne_mjbubl.png',
                         'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064449/hamburguesa_decarneparrillera_l0birg.png',
                         'https://res.cloudinary.com/dm2g8wqvx/image/upload/v1761064454/hamburguesa_depollo_ap6et1.png',
@@ -749,38 +842,81 @@
                     closeModal();
                 }
             });
+
+            // --- NUEVO: "Nosotros" Carousel Logic ---
+            const carousel = document.getElementById('nosotros-carousel');
+            if (carousel) {
+                const slides = carousel.querySelectorAll('.carousel-slide');
+                const prevBtn = carousel.querySelector('.carousel-prev');
+                const nextBtn = carousel.querySelector('.carousel-next');
+                const dotsContainer = carousel.querySelector('.carousel-dots');
+                let currentSlide = 0;
+                let slideInterval;
+
+                // Create dots
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('button');
+                    dot.classList.add('carousel-dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => {
+                        showSlide(i);
+                        resetInterval();
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+                
+                const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+                function showSlide(index) {
+                    // Corregir el índice para el bucle
+                    if (index >= slides.length) {
+                        currentSlide = 0;
+                    } else if (index < 0) {
+                        currentSlide = slides.length - 1;
+                    } else {
+                        currentSlide = index;
+                    }
+
+                    // Ocultar todas las diapositivas y desactivar puntos
+                    slides.forEach((slide, i) => {
+                        slide.classList.remove('active');
+                        dots[i].classList.remove('active');
+                    });
+
+                    // Mostrar la diapositiva actual y activar el punto
+                    slides[currentSlide].classList.add('active');
+                    dots[currentSlide].classList.add('active');
+                }
+
+                prevBtn.addEventListener('click', () => {
+                    showSlide(currentSlide - 1);
+                    resetInterval();
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    showSlide(currentSlide + 1);
+                    resetInterval();
+                });
+
+                function startInterval() {
+                    slideInterval = setInterval(() => {
+                        showSlide(currentSlide + 1);
+                    }, 5000); // Cambia cada 5 segundos
+                }
+
+                function resetInterval() {
+                    clearInterval(slideInterval);
+                    startInterval();
+                }
+
+                showSlide(0); // Mostrar la primera diapositiva
+                startInterval(); // Iniciar el carrusel automático
+            }
         });
             
     </script>
 </body>
 </html>
-```
-
-He añadido las siguientes reglas CSS para la nueva clase `btn-tiktok`:
-
-```css
-        .btn-tiktok {
-            background-color: #fe2c55; /* TikTok Red */
-            color: white;
-            font-weight: bold;
-            letter-spacing: 0.05em; /* Slightly wider text for emphasis */
-            padding-left: 1.5rem; /* More padding */
-            padding-right: 1.5rem;
-        }
-        .btn-tiktok:hover {
-            background-color: #ff406a; /* Lighter red on hover */
-            box-shadow: 0 8px 25px rgba(254, 44, 85, 0.4); /* Glow effect */
-        }
-```
-
-Y he reemplazado las clases Tailwind existentes en el botón por la nueva clase `btn-tiktok`:
-
-```html
-<a href="https://www.tiktok.com/@julio.cesar.prett?_t=ZM-90nYOjlhK3A&_r=1" target="_blank" class="btn btn-tiktok transform hover:-translate-y-1 backdrop-blur-sm border border-white/30">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="w-5 h-5"><path d="M16.6 5.82s.51-2.17.51-2.17-.51 0-.51 0v11.49c0 4.54-3.67 8.21-8.21 8.21s-8.21-3.67-8.21-8.21 3.67-8.21 8.21-8.21c.21 0 .42.01.62.03v2.03c-.2.02-.4.03-.62.03-3.39 0-6.16 2.77-6.16 6.16s2.77 6.16 6.16 6.16 6.16-2.77 6.16-6.16V5.82z"></path><path d="M16.6 5.82s-.01-3.72-.01-3.72c2.4 0 4.35 1.96 4.35 4.35v3.49s-1.92.01-1.92.01c0-1.25-.51-2.4-1.34-3.23s-1.98-1.34-3.23-1.34c.03.01 0 0 0 0z"></path></svg>
-    Seguinos en TikTok
-</a>
-
 
 
 
