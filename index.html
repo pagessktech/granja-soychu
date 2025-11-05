@@ -200,9 +200,18 @@
     </header>
 
     <main>
-        <!-- Hero Section --><section id="home" class="relative min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://res.cloudinary.com/dm2g8wqvx/image/upload/v1760748831/unnamed_izmcxu.webp');">
-            <div class="absolute inset-0 bg-black/50"></div>
-            <div class="relative z-10 text-center text-white px-4">
+        <!-- Hero Section --><section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <!-- Video Background -->
+            <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+                <source src="https://res.cloudinary.com/dm2g8wqvx/video/upload/v1762302416/Video_de_WhatsApp_2025-11-04_a_las_21.12.02_4e4dde37_ysojss.mp4" type="video/mp4">
+                Tu navegador no soporta videos.
+            </video>
+            
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black/50 z-10"></div>
+            
+            <!-- Content -->
+            <div class="relative z-20 text-center text-white px-4">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight drop-shadow-lg">De nuestra granja a tu mesa.</h1>
                 <p class="text-xl md:text-2xl font-light mb-8 max-w-2xl mx-auto drop-shadow-md">La frescura y calidad que tu familia merece, con la atención de siempre.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
